@@ -39,7 +39,7 @@ export class ServiceService {
     headers.append("Accept", 'application/json');
     headers.append('Content-Type', 'application/json');
     let options ={ headers: headers };
-    return this.http.post(this.AppConfig.link+"/Product",options).pipe<any>(map(res=>res));
+    return this.http.post(this.AppConfig.link+"/Product",prod,options).pipe<any>(map(res=>res));
   } 
 
   Login(UserName:any,PassWord:any){
@@ -47,7 +47,7 @@ export class ServiceService {
     headers.append("Accept", 'application/json');
     headers.append('Content-Type', 'application/json');
     let options ={ headers: headers };
-    return this.http.get(this.AppConfig.link+"/Product",options).pipe<any>(map(res=>res));
+    return this.http.get(this.AppConfig.link+"/Login?UserName="+UserName+'&PassWord='+PassWord,options).pipe<any>(map(res=>res));
     
   } 
 
